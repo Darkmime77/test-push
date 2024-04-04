@@ -1,8 +1,7 @@
 const publicVapidKey = "BK7CGic4mFr8cu9V4LPFGSk6V5ZBw9NpKmxQla8JieIEkbn5wQYkBMGbHtNEzoxJeI-eMRe9jp09ND9rmBS_MBQ";
-// if('serviceWorker' in navigator) {
-//     registerServiceWorker().catch(console.log)
-// }
-registerServiceWorker().catch(console.log)
+if('serviceWorker' in navigator) {
+    registerServiceWorker().catch(console.log)
+}
 
 async function registerServiceWorker() {
     const register = await navigator.serviceWorker.register('./worker.js', {
@@ -13,12 +12,5 @@ async function registerServiceWorker() {
         userVisibleOnly: true,
         applicationServerKey: publicVapidKey,
     });
-
-    await fetch("/subscribe", {
-        method: "POST",
-        body: JSON.stringify(subscription),
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
+    console.log(subscription, "Начало")
 }

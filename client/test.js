@@ -15,7 +15,6 @@ async function registerServiceWorker() {
         userVisibleOnly: true,
         applicationServerKey: publicVapidKey,
     });
-
     await fetch("/subscribeGo", {
         method: "POST",
         body: JSON.stringify(subscription),
